@@ -1,0 +1,4 @@
+node:
+  - lts/carbon
+  - lts/dubnium
+  - node
