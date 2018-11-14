@@ -3,9 +3,13 @@
   "version": "0.0.0",
   "description": "GraphQL bindings to the uPortal API",
   "main": "src/index.js",
+  "files": [
+    "src/"
+  ],
   "scripts": {
     "test": "eslint .",
-    "start": "node src/cli.js"
+    "start": "node src/cli.js",
+    "format": "prettier --write src/**"
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,7 @@
   },
   "homepage": "https://github.com/ChristianMurphy/uPortal-graphql#readme",
   "dependencies": {
+    "apollo-datasource-rest": "^0.2.0",
     "apollo-server": "^2.2.2",
     "apollo-server-lambda": "^2.2.2",
     "graphql": "^14.0.2"
@@ -32,5 +37,8 @@
     "husky": "^1.1.4",
     "lint-staged": "^8.0.4",
     "prettier": "^1.15.2"
+  },
+  "engines": {
+    "node": ">=8.0.0"
   }
 }
