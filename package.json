@@ -1,0 +1,32 @@
+{
+  "name": "uportal-graphql",
+  "version": "0.0.0",
+  "description": "GraphQL bindings to the uPortal API",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint .",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianMurphy/uPortal-graphql.git"
+  },
+  "keywords": [
+    "uportal",
+    "graphql"
+  ],
+  "author": "Christian Murphy",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ChristianMurphy/uPortal-graphql/issues"
+  },
+  "homepage": "https://github.com/ChristianMurphy/uPortal-graphql#readme",
+  "dependencies": {
+    "apollo-server": "^2.2.2",
+    "graphql": "^14.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-plugin-node": "^8.0.0"
+  }
+}
