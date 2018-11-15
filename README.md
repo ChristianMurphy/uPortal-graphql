@@ -21,9 +21,9 @@ npm start
 
 Set environment variables, or create a _.env_ file.
 
-| option | default                 |
-| ------ | ----------------------- |
-| `HOST` | 'http://localhost:8080' |
+| option | default                 | description                                              |
+| ------ | ----------------------- | -------------------------------------------------------- |
+| `HOST` | 'http://localhost:8080' | protocol, host, and (optional) port of the portal server |
 
 ### Test
 

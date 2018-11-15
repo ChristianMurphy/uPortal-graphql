@@ -5,7 +5,8 @@ class uPortalAPI extends RESTDataSource {
   constructor() {
     super();
     // all APIs start at /uPortal/api
-    this.baseURL = `${process.env.HOST || "http://localhost:8080"}/uPortal/api`;
+    this.baseURL = `${process.env.HOST ||
+      "http://localhost:8080"}/uPortal/api/`;
   }
 
   // pass authorization header along to uPortal
@@ -14,11 +15,11 @@ class uPortalAPI extends RESTDataSource {
   }
 
   async getLayout() {
-    return this.get("/v4-3/dlm/layout.json");
+    return this.get("v4-3/dlm/layout.json");
   }
 
   async getMe() {
-    return this.get("/v5-0/people/me");
+    return this.get("v5-0/people/me");
   }
 }
 
