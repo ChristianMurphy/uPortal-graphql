@@ -14,6 +14,10 @@ class uPortalAPI extends RESTDataSource {
   async getLayout() {
     return this.get("/v4-3/dlm/layout.json");
   }
+
+  async getMe() {
+    return this.get("/v5-0/people/me");
+  }
 }
 
 exports.uPortalAPI = uPortalAPI;
@@ -22,6 +26,7 @@ exports.uPortalAPI = uPortalAPI;
 exports.typeDefs = gql`
   type Query {
     layout: Layout
+    me: Me
   }
 
   type Layout {
@@ -79,12 +84,27 @@ exports.typeDefs = gql`
     EXPIRED
     MAINTENANCE
   }
+
+  type Me {
+    uid: [String]
+    telephoneNumber: [String]
+    mail: [String]
+    displayName: [String]
+    givenName: [String]
+    alternateEmailAddress: [String]
+    # TODO figure out how to handler "user.login.id"
+    sn: [String]
+    title: [String]
+    department: [String]
+    username: [String]
+  }
 `;
 
 // Provide resolver functions for your schema fields
 exports.resolvers = {
   Query: {
     layout: (_sources, _attrs, { dataSources }) =>
-      dataSources.uPortalAPI.getLayout()
+      dataSources.uPortalAPI.getLayout(),
+    me: (_sources, _attrs, { dataSources }) => dataSources.uPortalAPI.getMe()
   }
 };
