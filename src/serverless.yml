@@ -1,0 +1,12 @@
+service: uportal-apollo-lambda
+provider:
+  name: aws
+  runtime: nodejs8.10
+functions:
+  graphql:
+    handler: lambda.graphqlHandler
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true

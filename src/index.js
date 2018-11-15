@@ -1,7 +1,7 @@
 const { gql } = require("apollo-server");
 const { RESTDataSource } = require("apollo-datasource-rest");
 
-class LayoutAPI extends RESTDataSource {
+class uPortalAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = "http://localhost:8080/uPortal/api";
@@ -16,7 +16,7 @@ class LayoutAPI extends RESTDataSource {
   }
 }
 
-exports.LayoutAPI = LayoutAPI;
+exports.uPortalAPI = uPortalAPI;
 
 // Construct a schema, using GraphQL schema language
 exports.typeDefs = gql`
@@ -27,16 +27,57 @@ exports.typeDefs = gql`
   type Layout {
     user: String
     authenicated: Boolean
-    regions: [Region]
+    hostname: String
+    fragmentAdmin: String
+    locale: String
+    layout: SubLayout
   }
 
-  type Region {
+  type SubLayout {
+    regions: [LayoutRegion]
+    globals: LayoutGlobals
+  }
+
+  type LayoutGlobals {
+    userLayoutRoot: String
+    hasFavorites: Boolean
+    activeTabGroup: String
+    tabsInTabGroup: Int
+    userImpersonation: Boolean
+  }
+
+  type LayoutRegion {
     name: String
-    content: [Content]
+    content: [LayoutContent]
   }
 
-  type Content {
+  type LayoutContent {
+    _objectType: String
     url: String
+    iconUrl: String
+    ID: String
+    chanID: Int
+    description: String
+    fragment: Int
+    precedence: Float
+    fname: String
+    timeout: Int
+    title: String
+    typeID: Int
+    windowState: String
+    portletMode: String
+    portletName: String
+    lifecycleState: LifeCycleState
+    webAppName: String
+    # TODO parameters
+  }
+
+  enum LifeCycleState {
+    CREATED
+    APPROVED
+    PUBLISHED
+    EXPIRED
+    MAINTENANCE
   }
 `;
 
@@ -44,6 +85,6 @@ exports.typeDefs = gql`
 exports.resolvers = {
   Query: {
     layout: (_sources, _attrs, { dataSources }) =>
-      dataSources.LayoutAPI.getLayout()
+      dataSources.uPortalAPI.getLayout()
   }
 };

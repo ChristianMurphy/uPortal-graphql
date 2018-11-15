@@ -1,15 +1,15 @@
 const { ApolloServer } = require("apollo-server");
-const { typeDefs, resolvers, LayoutAPI } = require("./index.js");
+const { typeDefs, resolvers, uPortalAPI } = require("./index.js");
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources: () => ({
-    LayoutAPI: new LayoutAPI()
+    uPortalAPI: new uPortalAPI()
   }),
   context: ({ req }) => ({
     authorization: req.headers.authorization
   })
 });
 
-exports.handler = server.createHandler();
+exports.graphqlHandler = server.createHandler();
