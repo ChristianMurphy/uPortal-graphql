@@ -17,6 +17,14 @@ npm install
 npm start
 ```
 
+### Configuration
+
+Set environment variables, or create a _.env_ file.
+
+| option | default                 |
+| ------ | ----------------------- |
+| `HOST` | 'http://localhost:8080' |
+
 ### Test
 
 ```sh

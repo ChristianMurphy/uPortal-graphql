@@ -4,9 +4,11 @@ const { RESTDataSource } = require("apollo-datasource-rest");
 class uPortalAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = "http://localhost:8080/uPortal/api";
+    // all APIs start at /uPortal/api
+    this.baseURL = `${process.env.HOST || "http://localhost:8080"}/uPortal/api`;
   }
 
+  // pass authorization header along to uPortal
   willSendRequest(request) {
     request.headers.set("Authorization", this.context.authorization);
   }

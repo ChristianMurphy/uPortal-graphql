@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "test": "eslint .",
-    "start": "node src/cli.js",
+    "start": "node -r dotenv/config src/cli.js",
     "format": "prettier --write src/**"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "apollo-datasource-rest": "^0.2.0",
     "apollo-server": "^2.2.2",
     "apollo-server-lambda": "^2.2.2",
+    "dotenv": "^6.1.0",
     "graphql": "^14.0.2"
   },
   "devDependencies": {
