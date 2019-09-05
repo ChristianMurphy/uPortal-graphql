@@ -35,7 +35,7 @@
     "dotenv": "^8.0.0",
     "eslint": "^6.0.0",
     "eslint-plugin-node": "^10.0.0",
-    "husky": "^2.0.0",
+    "husky": "^3.0.0",
     "lint-staged": "^9.0.0",
     "prettier": "^1.15.2"
   },
